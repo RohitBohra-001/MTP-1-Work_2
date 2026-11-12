@@ -1,0 +1,5 @@
+--- LLM-Check Proposed Method Scores ---
+Perplexity: AUROC=53.22%, Accuracy=58.68%
+Logit Entropy: AUROC=53.77%, Accuracy=56.29%
+Window Entropy: AUROC=56.92%, Accuracy=56.29%
+Attention (Best Layer 20): AUROC=72.37%, Accuracy=67.96%

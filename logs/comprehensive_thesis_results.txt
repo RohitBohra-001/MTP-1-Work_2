@@ -1,0 +1,66 @@
+COMPREHENSIVE EXPERIMENT RESULTS FOR THESIS
+================================================================================
+
+1. REPRODUCTION TABLE (L1 - 167 PAIRS / 334 SAMPLES):
+         Method  AUROC (%)  Accuracy (%)  TPR @ 5% FPR (%)  F1 Score (%)
+     Perplexity      53.22         58.68              3.59         68.92
+  Logit Entropy      53.77         56.29              2.99         57.80
+ Window Entropy      56.92         56.29              2.99         54.66
+Attention (L20)      72.37         67.96             14.97         70.52
+
+2. LAYER-WISE PERFORMANCE (L3 - ALL 31 LAYERS):
+ Layer  AUROC  Accuracy  TPR_5FPR    F1
+     1  59.51     60.18     11.38 65.98
+     2  58.89     58.98     10.18 67.61
+     3  61.20     59.58     11.98 55.45
+     4  64.49     62.87     15.57 65.56
+     5  56.11     59.28      2.40 62.01
+     6  56.53     57.19      4.19 65.71
+     7  58.77     59.58      5.99 67.47
+     8  56.93     59.88      6.59 64.92
+     9  57.50     59.58      5.99 66.33
+    10  55.69     58.68      7.19 65.50
+    11  52.83     55.99      5.99 64.75
+    12  54.66     56.89      3.59 67.42
+    13  57.51     60.48      6.59 68.57
+    14  54.16     58.08      1.80 66.35
+    15  55.71     58.38      5.39 64.08
+    16  59.54     61.68      5.39 69.38
+    17  62.88     63.77      6.59 67.21
+    18  69.95     67.37     23.35 62.02
+    19  66.75     66.17     16.17 70.03
+    20  72.37     67.96     14.97 70.52
+    21  68.23     65.27     16.17 68.65
+    22  69.04     64.97     21.56 71.25
+    23  60.79     62.57      5.39 69.44
+    24  59.83     58.08     12.57 60.67
+    25  59.23     58.38     11.98 62.73
+    26  62.61     61.38     10.78 69.36
+    27  57.33     59.58      8.38 65.65
+    28  57.90     61.68      7.19 67.68
+    29  56.13     59.88      6.59 69.41
+    30  51.69     56.59      2.99 66.20
+    31  52.23     55.69      2.99 64.42
+
+3. HONEST LAYER SELECTION (L4 - 5 RANDOM SPLITS):
+              Split  Selected Layer  Val AUROC (%)  Test AUROC (%)  Test Acc (%)  Test F1 (%)  Oracle Layer  Oracle AUROC (%)
+  Split 1 (seed 42)              20          80.75           71.23         68.03        70.25            20             71.23
+ Split 2 (seed 100)              18          84.00           67.96         65.99        60.32            20             71.28
+Split 3 (seed 2024)              18          68.25           69.97         68.03        62.70            20             72.81
+ Split 4 (seed 777)               4          66.75           64.23         62.59        65.62            20             74.56
+ Split 5 (seed 999)              18          78.00           69.14         66.33        61.18            20             72.08
+Mean Honest Test AUROC: 68.51% ± 2.67%
+Mean Oracle Test AUROC: 72.39% ± 1.37%
+
+4. AUROC BY HALLUCINATION TYPE (L5):
+Hallucination Type  N (Positives)  N (Truthful Controls)  AUROC (%)  Accuracy (%)  TPR @ 5% FPR (%)  F1 Score (%)
+          Invented             60                    167      78.79         73.92             23.33         60.43
+          Relation             25                    167      74.55         69.23             20.00         36.36
+            Entity            187                    167      74.06         69.94             20.32         68.24
+        Subjective             91                    167      71.62         67.85             23.08         60.00
+      Unverifiable             87                    167      76.37         71.30             18.39         63.76
+
+5. FAILURE ANALYSIS SUMMARY (L7):
+Optimal Threshold: 162.4355
+Total False Negatives: 39 / 167 (23.4%)
+Total False Positives: 68 / 167 (40.7%)
